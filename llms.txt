@@ -1,0 +1,7 @@
+# Repository Orientation for LLMs
+
+This repository follows standard project layout guidelines:
+- Documentation files: README.md, TODO.md, CHANGELOG.md, CONTRIBUTING.md, SECURITY.md.
+- Configuration: .editorconfig, .gitattributes, .prettierrc, .markdownlint.json, cspell.json.
+- Workflows: .github/workflows for CI/CD, linting, formatting, secret scanning, and run cleanup.
+- Language standard: en-GB spelling enforced in cspell.json with alphabetically sorted custom words.

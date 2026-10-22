@@ -1,0 +1,34 @@
+{
+  "version": "0.2",
+  "language": "en-GB",
+  "useGitignore": true,
+  "ignorePaths": [
+    "node_modules",
+    "package-lock.json",
+    ".git",
+    "bin",
+    "obj",
+    "dist",
+    "public",
+    "output",
+    "scratch",
+    "api/data",
+    "api/private_assets",
+    "*.cjs",
+    "*.txt",
+    "*.tf",
+    "*.json"
+  ],
+  "words": [
+    "analyzer",
+    "autocleaning",
+    "backbuffer",
+    "CTOUT",
+    "dependabot",
+    "frontmatter",
+    "gitleaks",
+    "linters",
+    "llms",
+    "markdownlint"
+  ]
+}
