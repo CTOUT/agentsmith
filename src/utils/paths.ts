@@ -8,7 +8,14 @@ import { lstatSync } from "node:fs";
 
 /** Root of the agentsmith cache directory. */
 export function cacheRoot(): string {
-    return join(homedir(), ".agentsmith");
+    return process.env.AGENTSMITH_HOME || join(homedir(), ".agentsmith");
+}
+
+/** Root of the legacy vscode-copilot-sync cache directory. */
+export function legacyCacheRoot(): string {
+    return (
+        process.env.AWESOME_COPILOT_HOME || join(homedir(), ".awesome-copilot")
+    );
 }
 
 /** Path to the local awesome-copilot git checkout. */

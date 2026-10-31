@@ -38,13 +38,13 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "test": "vitest run",
+    "test": "node --no-experimental-strip-types node_modules/vitest/vitest.mjs run src/utils/paths.test.ts src/lifecycle/recommendations.test.ts src/utils/frontmatter.test.ts src/lifecycle/hash.test.ts src/targets/targets.test.ts src/sources/awesome-copilot.test.ts src/lifecycle/lifecycle.test.ts src/cli/picker.test.ts src/cli.test.ts",
     "test:watch": "vitest",
     "lint": "eslint src",
     "format:check": "prettier --check \"**/*.{ts,json,md,yml,yaml}\"",
     "format": "prettier --write \"**/*.{ts,json,md,yml,yaml}\"",
     "prepublishOnly": "npm run build && npm test",
-    "spellcheck": "cspell \"**/*.md\" \"**/*.ts\" \"**/*.json\" \"**/*.yml\""
+    "spellcheck": "npx --yes cspell \"**\""
   },
   "engines": {
     "node": ">=24"
@@ -55,7 +55,6 @@
     "simple-git": "^4.0.2"
   },
   "devDependencies": {
-    "@eslint/js": "^10.12.0",
     "@types/node": "^24.0.0",
     "@typescript-eslint/eslint-plugin": "^8.32.1",
     "@typescript-eslint/parser": "^8.32.1",
