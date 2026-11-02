@@ -30,7 +30,7 @@
     }
   },
   "bin": {
-    "agentsmith": "dist/cli.js"
+    "agentsmith": "dist/cli.cjs"
   },
   "files": [
     "dist"

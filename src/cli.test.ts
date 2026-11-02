@@ -15,7 +15,7 @@ import { syncAwesomeCopilot } from "./sources/awesome-copilot.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const root = join(__dirname, "..");
-const cliJs = join(root, "dist", "cli.js");
+const cliJs = join(root, "dist", "cli.cjs");
 
 describe("agentsmith CLI", () => {
     let tempHome: string;
