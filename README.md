@@ -7,8 +7,8 @@ A cross-environment agent asset manager. Install, sync, and update agent skills,
 ## Quick Start
 
 ```bash
-npx @ctout/agentsmith sync
-npx @ctout/agentsmith install
+npx @ctout-uk/agentsmith sync
+npx @ctout-uk/agentsmith install
 ```
 
 No install required. Requires Node 24+.

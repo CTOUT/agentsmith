@@ -1,18 +1,25 @@
-import { defineConfig } from "tsup";
+import { defineConfig } from 'tsup'
 
-export default defineConfig({
-    entry: {
-        cli: "src/cli.ts",
-        index: "src/index.ts",
+export default defineConfig([
+  {
+    entry: { cli: 'src/cli.ts' },
+    format: ['esm'],
+    dts: false,
+    sourcemap: true,
+    clean: false,
+    splitting: false,
+    shims: true,
+    banner: {
+      js: '#!/usr/bin/env node',
     },
-    format: ["esm", "cjs"],
+  },
+  {
+    entry: { index: 'src/index.ts' },
+    format: ['esm', 'cjs'],
     dts: true,
     sourcemap: true,
     clean: true,
     splitting: false,
-    shims: true, // adds __dirname/__filename shims for ESM
-    banner: {
-        // ensures the CLI entry is executable
-        js: "",
-    },
-});
+    shims: true,
+  },
+])

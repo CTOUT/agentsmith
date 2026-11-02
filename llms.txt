@@ -12,7 +12,7 @@ SHA-256 hash-based change detection to protect local edits.
 
 - README: https://github.com/CTOUT/agentsmith/blob/main/README.md
 - Changelog: https://github.com/CTOUT/agentsmith/blob/main/CHANGELOG.md
-- npm: https://www.npmjs.com/package/@ctout/agentsmith
+- npm: https://www.npmjs.com/package/@ctout-uk/agentsmith
 
 ## Quick usage
 
