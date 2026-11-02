@@ -13,3 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Target adapters for `vscode`, `kiro`, and `antigravity` across `repo` and `user` scopes with frontmatter translation (`src/targets/`).
 - Subscription lifecycle commands (`sync`, `install`, `update`, `remove`, `list`), SHA-256 local-edit detection, workspace auto-detection, and interactive picker (`src/lifecycle/`, `src/cli/`).
 - Unit and integration test suites (`vitest`) and GitHub Actions CI workflow (`.github/workflows/ci.yml`).
+
+### Security
+
+- `assertPathWithin` uses `isAbsolute()` for unambiguous cross-platform path escape detection.
+- Asset IDs validated before filename construction in `installAsset` and `removeAsset` — IDs containing `/`, `\`, or `..` are rejected.
+- `removeAsset` infers repo `cwd` from the recorded `installedPath`, preventing false-positive security errors when removing from a different working directory.
+- Mass removal threshold set to 25% (blocks sync if ≥ 25% of tracked assets would be removed without `--force`).
+- `AGENTSMITH_HOME` documented as a trusted-input override in `SECURITY.md`.
+- All dependencies pinned to exact versions.

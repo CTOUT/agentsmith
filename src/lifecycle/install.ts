@@ -39,6 +39,18 @@ export function installAsset(
     assetId: string,
     options: InstallOptions
 ): OperationResult {
+    // Reject asset IDs containing path separators or traversal sequences
+    if (/[/\\]|\.\./.test(assetId)) {
+        return {
+            id: assetId,
+            target: options.target,
+            scope: options.scope,
+            success: false,
+            action: 'failed',
+            reason: `Invalid asset ID '${assetId}': IDs must not contain path separators or traversal sequences.`,
+        }
+    }
+
     const { target, scope, dryRun = false, force = false, cwd, home } = options;
     const manifest = loadManifest();
     const entry = manifest.find((m) => m.id === assetId);

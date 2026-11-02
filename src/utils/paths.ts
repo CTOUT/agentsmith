@@ -3,7 +3,7 @@
  */
 
 import { homedir } from "node:os";
-import { join, resolve, relative, sep } from "node:path";
+import { join, resolve, relative, sep, isAbsolute } from "node:path";
 import { lstatSync } from "node:fs";
 
 /** Root of the agentsmith cache directory. */
@@ -54,7 +54,7 @@ export function assertPathWithin(
     const rel = relative(resolvedBase, resolvedTarget);
 
     const isEqual = rel === "";
-    const isOutside = rel.startsWith("..") || resolve(rel) === rel; // absolute path means it escaped
+    const isOutside = rel.startsWith("..") || isAbsolute(rel);
 
     if (isOutside || (isEqual && !allowEqual)) {
         throw new Error(

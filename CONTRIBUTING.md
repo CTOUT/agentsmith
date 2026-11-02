@@ -1,21 +1,44 @@
-# Contributing Guidelines
+# Contributing
 
-Thank you for contributing to this project!
+Contributions welcome. Here's how to get started.
 
-## Getting Started
+## Prerequisites
 
-1. Fork or clone the repository.
-2. Ensure your editor respects `.editorconfig`, `.prettierrc`, and `cspell.json`.
-3. Create a descriptive branch for your changes.
+- **Node 24+** — [nodejs.org](https://nodejs.org)
+- **git**
 
-## Code & Documentation Standards
+## Setup
 
-- Use UK English (`en-GB`) for spelling.
-- Ensure all markdown files follow standard heading structures.
-- Run code formatters (`prettier --write .`) and spell check (`cspell`) before submitting PRs.
+```bash
+git clone https://github.com/CTOUT/agentsmith.git
+cd agentsmith
+npm install
+npm run build
+npm test
+```
 
-## Submitting Pull Requests
+## Development
 
-1. Keep pull requests focused on a single logical change.
-2. Ensure all CI/CD security and format checks pass.
-3. Request review from project maintainers.
+```bash
+npm run build        # Compile TypeScript via tsup
+npm test             # Run Vitest test suite
+npm run lint         # ESLint
+npm run format       # Prettier
+npm run spellcheck   # cspell (en-GB)
+```
+
+Tests live alongside source files as `*.test.ts`. The test suite covers utilities, lifecycle operations, target adapters, the source adapter, the picker, and CLI integration end-to-end.
+
+## Standards
+
+- **Language:** TypeScript, strict mode
+- **Spelling:** en-GB (`cspell.json`)
+- **Formatting:** Prettier (`.prettierrc`)
+- **Commit messages:** plain imperative present tense, e.g. `fix: reject asset IDs with path separators`
+
+## Pull Requests
+
+- Keep PRs focused on a single logical change
+- Ensure all CI checks pass (build, test, lint, format, spellcheck, gitleaks)
+- Add or update tests for any changed behaviour
+- Update `CHANGELOG.md` under `[Unreleased]`

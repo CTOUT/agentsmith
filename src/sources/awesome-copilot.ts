@@ -32,7 +32,7 @@ import { hashAssetPath } from "../lifecycle/hash.js";
 export const AWESOME_COPILOT_REPO_URL =
     "https://github.com/github/awesome-copilot.git";
 export const SOURCE_NAME = "awesome-copilot";
-export const MASS_REMOVAL_THRESHOLD = 0.5;
+export const MASS_REMOVAL_THRESHOLD = 0.25;
 
 export interface SyncOptions {
     dryRun?: boolean;

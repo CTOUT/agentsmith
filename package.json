@@ -30,10 +30,11 @@
     }
   },
   "bin": {
-    "agentsmith": "dist/cli.cjs"
+    "agentsmith": "./bin/agentsmith.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "bin"
   ],
   "scripts": {
     "build": "tsup",
@@ -50,22 +51,20 @@
     "node": ">=24"
   },
   "dependencies": {
-    "@inquirer/prompts": "^7.5.2",
-    "commander": "^13.1.0",
-    "simple-git": "^4.0.2"
+    "@inquirer/prompts": "8.7.5",
+    "commander": "15.0.0",
+    "simple-git": "4.0.2"
   },
   "devDependencies": {
-    "@types/node": "^24.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.32.1",
-    "@typescript-eslint/parser": "^8.32.1",
-    "eslint": "^10.12.0",
-    "prettier": "^3.5.3",
-    "tsup": "^8.4.0",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.32.1",
-    "vitest": "^5.0.5"
+    "@types/node": "26.6.6",
+    "eslint": "10.14.0",
+    "prettier": "3.9.10",
+    "tsup": "9.0.0",
+    "typescript": "5.9.2",
+    "typescript-eslint": "8.72.1",
+    "vitest": "5.1.0"
   },
   "allowScripts": {
-    "esbuild@0.27.7": true
+    "esbuild@0.28.2": true
   }
 }

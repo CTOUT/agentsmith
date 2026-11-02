@@ -3,7 +3,7 @@
  */
 
 import { existsSync, readdirSync, rmSync, rmdirSync } from "node:fs";
-import { dirname, resolve, sep } from "node:path";
+import { dirname, basename, resolve, sep } from "node:path";
 import type { OperationResult, Scope, Target } from "../types.js";
 import { getTargetAdapter } from "../targets/index.js";
 import { assertPathWithin } from "../utils/paths.js";
@@ -17,6 +17,22 @@ export interface RemoveOptions {
     home?: string;
 }
 
+function inferRepoCwdFromSubscription(
+    subscription: import('../types.js').Subscription,
+    target: import('../types.js').Target
+): string | undefined {
+    if (subscription.scope !== 'repo') return undefined
+    const marker = target === 'vscode' ? '.github' : target === 'kiro' ? '.kiro' : '.agents'
+    let current = resolve(subscription.installedPath)
+    while (true) {
+        const parent = dirname(current)
+        if (parent === current) break
+        if (basename(current) === marker) return parent
+        current = parent
+    }
+    return undefined
+}
+
 /**
  * Removes an installed asset and its subscription record.
  */
@@ -25,9 +41,22 @@ export function removeAsset(
     options: RemoveOptions
 ): OperationResult {
     const { target, scope, dryRun = false, cwd, home } = options;
+
+    // Reject asset IDs containing path separators or traversal sequences
+    if (/[/\\]|\.\./.test(assetId)) {
+        return {
+            id: assetId,
+            target: options.target,
+            scope: options.scope,
+            success: false,
+            action: 'failed',
+            reason: `Invalid asset ID '${assetId}': IDs must not contain path separators or traversal sequences.`,
+        }
+    }
+
     const adapter = getTargetAdapter(target);
-    const baseDir = adapter.resolveBaseDir(scope, cwd, home);
-    const subscription = findSubscription(assetId, target, scope, baseDir);
+    // Find subscription without path constraint first (search by id/target/scope only)
+    const subscription = findSubscription(assetId, target, scope);
 
     if (!subscription) {
         return {
@@ -39,6 +68,9 @@ export function removeAsset(
             reason: `Asset '${assetId}' is not installed for target '${target}' (${scope} scope).`,
         };
     }
+
+    const inferredCwd = inferRepoCwdFromSubscription(subscription, target) ?? cwd
+    const baseDir = adapter.resolveBaseDir(scope, inferredCwd, home)
 
     try {
         assertPathWithin(subscription.installedPath, baseDir);

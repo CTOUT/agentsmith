@@ -17,8 +17,8 @@ SHA-256 hash-based change detection to protect local edits.
 ## Quick usage
 
 ```bash
-npx @ctout/agentsmith sync
-npx @ctout/agentsmith install
+npx @ctout-uk/agentsmith sync
+npx @ctout-uk/agentsmith install
 ```
 
 ## Supported environments
