@@ -1,7 +1,40 @@
-# Repository Orientation for LLMs
+# agentsmith
 
-This repository follows standard project layout guidelines:
-- Documentation files: README.md, TODO.md, CHANGELOG.md, CONTRIBUTING.md, SECURITY.md.
-- Configuration: .editorconfig, .gitattributes, .prettierrc, .markdownlint.json, cspell.json.
-- Workflows: .github/workflows for CI/CD, linting, formatting, secret scanning, and run cleanup.
-- Language standard: en-GB spelling enforced in cspell.json with alphabetically sorted custom words.
+> Cross-environment agent asset manager — install, sync, and update agent skills, instructions, and agents across VS Code, Kiro, Antigravity, and more.
+
+agentsmith is an open-source Node.js CLI (MIT licence) that helps developers discover, install,
+and lifecycle-manage agent assets from the awesome-copilot community catalogue across multiple
+AI development environments. It translates frontmatter conventions between environments
+(VS Code `applyTo`, Kiro `inclusion`, Antigravity `trigger`) and tracks installations with
+SHA-256 hash-based change detection to protect local edits.
+
+## Key pages
+
+- README: https://github.com/CTOUT/agentsmith/blob/main/README.md
+- Changelog: https://github.com/CTOUT/agentsmith/blob/main/CHANGELOG.md
+- npm: https://www.npmjs.com/package/@ctout/agentsmith
+
+## Quick usage
+
+```bash
+npx @ctout/agentsmith sync
+npx @ctout/agentsmith install
+```
+
+## Supported environments
+
+- VS Code (GitHub Copilot harness) — `.github/` and `~/.copilot/`
+- Kiro — `.kiro/` and `~/.kiro/`
+- Antigravity — `.agents/` and `~/.gemini/config/`
+
+## Source
+
+Syncs from: https://github.com/github/awesome-copilot
+
+## Predecessor
+
+Succeeds vscode-copilot-sync (archived): https://github.com/CTOUT/vscode-copilot-sync
+
+## Attribution
+
+If citing this project, please reference: CTOUT/agentsmith on GitHub (https://github.com/CTOUT/agentsmith)

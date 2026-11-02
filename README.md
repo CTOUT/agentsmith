@@ -7,8 +7,8 @@ A cross-environment agent asset manager. Install, sync, and update agent skills,
 ## Quick Start
 
 ```bash
-npx agentsmith sync
-npx agentsmith install
+npx @ctout/agentsmith sync
+npx @ctout/agentsmith install
 ```
 
 No install required. Requires Node 24+.
@@ -77,6 +77,7 @@ installed 'security-and-owasp' -> kiro:repo [adapted: applyTo -> inclusion: file
 ```
 
 Three outcomes are possible:
+
 - **Native** — asset installed as-is, no changes
 - **Adapted** — frontmatter translated for the target; changes reported
 - **Unsupported** — asset cannot be safely installed; reason explained

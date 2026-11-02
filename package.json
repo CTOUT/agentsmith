@@ -1,5 +1,5 @@
 {
-  "name": "agentsmith",
+  "name": "@ctout/agentsmith",
   "version": "0.1.0",
   "description": "Cross-environment agent asset manager — install, sync, and update agent skills, instructions, and agents across VS Code, Kiro, Antigravity, and more.",
   "keywords": [
