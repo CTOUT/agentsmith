@@ -23,11 +23,11 @@ No install required. Requires Node 24+.
 
 ## Supported environments
 
-| Environment | Repo scope | User scope |
-| --- | --- | --- |
+| Environment                   | Repo scope                                                    | User scope                                                             |
+| ----------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | **VS Code** (Copilot harness) | `.github/agents/`, `.github/instructions/`, `.github/skills/` | `~/.copilot/agents/`, `~/.copilot/instructions/`, `~/.copilot/skills/` |
-| **Kiro** | `.kiro/agents/`, `.kiro/steering/`, `.kiro/skills/` | `~/.kiro/agents/`, `~/.kiro/steering/`, `~/.kiro/skills/` |
-| **Antigravity** | `.agents/plugins/<name>/` | `~/.gemini/config/plugins/<name>/` |
+| **Kiro**                      | `.kiro/agents/`, `.kiro/steering/`, `.kiro/skills/`           | `~/.kiro/agents/`, `~/.kiro/steering/`, `~/.kiro/skills/`              |
+| **Antigravity**               | `.agents/plugins/<name>/`                                     | `~/.gemini/config/plugins/<name>/`                                     |
 
 ## Commands
 
@@ -60,12 +60,12 @@ agentsmith list --scope user             # Filter by scope
 
 ## Status badges
 
-| Badge | Meaning |
-| --- | --- |
-| `★` | Recommended for this environment |
-| `[*]` | Already installed |
-| `[↑]` | Update available from upstream |
-| `[~]` | Locally modified since install |
+| Badge | Meaning                                               |
+| ----- | ----------------------------------------------------- |
+| `★`   | Recommended for this environment                      |
+| `[*]` | Already installed                                     |
+| `[↑]` | Update available from upstream                        |
+| `[~]` | Locally modified since install                        |
 | `[!]` | Requires additional setup (MCP server, API key, etc.) |
 
 ## Portability
@@ -84,11 +84,11 @@ Three outcomes are possible:
 
 ### Frontmatter translation reference
 
-| VS Code (`applyTo`) | Kiro (`inclusion`) | Antigravity (`trigger`) |
-| --- | --- | --- |
+| VS Code (`applyTo`)  | Kiro (`inclusion`)                                     | Antigravity (`trigger`)              |
+| -------------------- | ------------------------------------------------------ | ------------------------------------ |
 | `applyTo: "**/*.ts"` | `inclusion: fileMatch` + `fileMatchPattern: "**/*.ts"` | `trigger: glob` + `globs: "**/*.ts"` |
-| `applyTo: "**"` | `inclusion: always` | `trigger: always_on` |
-| *(none)* | `inclusion: always` | `trigger: always_on` |
+| `applyTo: "**"`      | `inclusion: always`                                    | `trigger: always_on`                 |
+| _(none)_             | `inclusion: always`                                    | `trigger: always_on`                 |
 
 ## Cache and subscriptions
 

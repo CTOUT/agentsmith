@@ -46,9 +46,9 @@ export function installAsset(
             target: options.target,
             scope: options.scope,
             success: false,
-            action: 'failed',
+            action: "failed",
             reason: `Invalid asset ID '${assetId}': IDs must not contain path separators or traversal sequences.`,
-        }
+        };
     }
 
     const { target, scope, dryRun = false, force = false, cwd, home } = options;

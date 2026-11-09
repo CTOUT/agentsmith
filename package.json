@@ -42,8 +42,8 @@
     "test": "node --no-experimental-strip-types node_modules/vitest/vitest.mjs run src/utils/paths.test.ts src/lifecycle/recommendations.test.ts src/utils/frontmatter.test.ts src/lifecycle/hash.test.ts src/targets/targets.test.ts src/sources/awesome-copilot.test.ts src/lifecycle/lifecycle.test.ts src/cli/picker.test.ts src/cli.test.ts",
     "test:watch": "vitest",
     "lint": "eslint src",
-    "format:check": "prettier --check \"**/*.{ts,json,md,yml,yaml}\"",
-    "format": "prettier --write \"**/*.{ts,json,md,yml,yaml}\"",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
     "prepublishOnly": "npm run build && npm test",
     "spellcheck": "npx --yes cspell \"**\""
   },

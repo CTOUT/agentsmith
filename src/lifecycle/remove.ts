@@ -18,19 +18,24 @@ export interface RemoveOptions {
 }
 
 function inferRepoCwdFromSubscription(
-    subscription: import('../types.js').Subscription,
-    target: import('../types.js').Target
+    subscription: import("../types.js").Subscription,
+    target: import("../types.js").Target
 ): string | undefined {
-    if (subscription.scope !== 'repo') return undefined
-    const marker = target === 'vscode' ? '.github' : target === 'kiro' ? '.kiro' : '.agents'
-    let current = resolve(subscription.installedPath)
+    if (subscription.scope !== "repo") return undefined;
+    const marker =
+        target === "vscode"
+            ? ".github"
+            : target === "kiro"
+              ? ".kiro"
+              : ".agents";
+    let current = resolve(subscription.installedPath);
     while (true) {
-        const parent = dirname(current)
-        if (parent === current) break
-        if (basename(current) === marker) return parent
-        current = parent
+        const parent = dirname(current);
+        if (parent === current) break;
+        if (basename(current) === marker) return parent;
+        current = parent;
     }
-    return undefined
+    return undefined;
 }
 
 /**
@@ -49,9 +54,9 @@ export function removeAsset(
             target: options.target,
             scope: options.scope,
             success: false,
-            action: 'failed',
+            action: "failed",
             reason: `Invalid asset ID '${assetId}': IDs must not contain path separators or traversal sequences.`,
-        }
+        };
     }
 
     const adapter = getTargetAdapter(target);
@@ -69,8 +74,9 @@ export function removeAsset(
         };
     }
 
-    const inferredCwd = inferRepoCwdFromSubscription(subscription, target) ?? cwd
-    const baseDir = adapter.resolveBaseDir(scope, inferredCwd, home)
+    const inferredCwd =
+        inferRepoCwdFromSubscription(subscription, target) ?? cwd;
+    const baseDir = adapter.resolveBaseDir(scope, inferredCwd, home);
 
     try {
         assertPathWithin(subscription.installedPath, baseDir);
