@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "@inquirer/prompts": "8.7.5",
-    "commander": "15.0.0",
+    "commander": "15.1.0",
     "simple-git": "4.0.2"
   },
   "devDependencies": {
